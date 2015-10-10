@@ -9,7 +9,8 @@ char *strcopy(char * s1, char * s2);
 char  *strncopy(char * s1, char *s2, int size);
 char strncut(char *str, int size);
 char strcat(char *str1, char *str2);
-char charAt(char *str1, int position);
+char charAt(char *str1, int firstPos, int lastPos);
+char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos);
 
 
 

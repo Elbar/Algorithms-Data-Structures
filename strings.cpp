@@ -13,6 +13,7 @@ char strncut(char *str, int size);
 char strcat(char *str1, char *str2);
 char charAt(char *str1, int firstPos, int lastPos);
 char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos);
+int strCompare(char *str1,char *str2);
 
 
 
@@ -138,6 +139,18 @@ char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos){
 }
 
 
+int strCompare(char *str1,char *str2)
+{
+    if (strlength(str1)!=strlength(str2))
+        cout<<"Not equal";
+
+    int count=strlength(str1)+1;
+    while(*str1++==*str2++) --count;
+    if (count) return 0;
+    return 1;
+}
+
+
 int main() {
 
     char string1[] = "Testsasdwd";
@@ -163,6 +176,8 @@ int main() {
     cout<<charAt(string1,1,6);
     cout<<"\n";
     cout<<indexOf(string1,"Test",2,6);
+    cout<<"\n";
+    cout<<strCompare(string1,string2);
 
 
 

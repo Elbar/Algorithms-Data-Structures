@@ -1,9 +1,11 @@
+
 #include <iostream>
 using namespace std;
 
 /**
  * Prototypes of functions
  */
+
 int strlength(char*);
 char *strcopy(char * s1, char * s2);
 char  *strncopy(char * s1, char *s2, int size);
@@ -49,6 +51,7 @@ char *strncopy(char * s1 , char * s2,int size) {
  *
  **/
 
+
 char strncut(char *str, int size) {
 
     for (int i = 0; i < size; i++) {
@@ -62,6 +65,7 @@ char strncut(char *str, int size) {
 /**
  * Strcat function(concatenation)
  */
+
 char strcat(char *str1, char *str2){
     int size = 10;
 
@@ -104,6 +108,7 @@ char strncat(char *str1, char *str2,int size){
 /**
  * Finding the letters from first to last value
  */
+
 char charAt(char *str1, int firstPos, int lastPos){
 
     for(int i=firstPos;i<=lastPos;i++){
@@ -115,12 +120,15 @@ char charAt(char *str1, int firstPos, int lastPos){
 /**
  *char *searchValue - substring search from the beginning of the line
  */
+
 char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos){
              int k=0;
+             char  *searchArg="Test";
             for(int i=fromIndex;i<=lastPos;i++){
-                k++;
-                if(searchValue) {
-                    cout << str1[i+fromIndex+1]<<" - "<<k;
+
+                if(searchArg == searchValue) {
+                    k++;
+                    cout << str1[i]<<" - "<<k;
                 }
             }
     return 0;

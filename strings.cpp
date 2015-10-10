@@ -112,9 +112,19 @@ char charAt(char *str1, int firstPos, int lastPos){
     return 0;
 }
 /**
- *
+ *char *searchValue - substring search from the beginning of the line
  */
-char indexOf(){
+char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos){
+             int k=0;
+            for(int i=fromIndex;i<=lastPos;i++){
+                k++;
+                if(searchValue) {
+                    cout << str1[i+fromIndex+1]<<" - "<<k;
+                }
+            }
+    return 0;
+
+
 
 }
 
@@ -142,6 +152,8 @@ int main() {
     cout<<strncat(string1, string2,5);
     cout<<"\n";
     cout<<charAt(string1,1,6);
+    cout<<"\n";
+    cout<<indexOf(string1,"Test",2,6);
 
 
 

@@ -40,13 +40,31 @@ char* strncopy(char *dest, const char *src, int n)
     return dest;
 }
 
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> b04a376983d33d6a921447f33e63c7b0facc9436
 
 /**
  * Strcat function(concatenation)
  */
 
+<<<<<<< HEAD
+
+char * strcat(char * destination, const char * value)
+{
+    char *p = destination;
+
+    while ( *p != '\0' ) ++p;
+
+    while( *p++ = *value++ );
+
+    return destination;
+}
+=======
 
 char * strcat(char * destination, const char * value)
 {
@@ -60,6 +78,11 @@ char * strcat(char * destination, const char * value)
 }
 
 
+/**
+ * Cut letters from the set value
+ *
+ **/
+
 
 char strncut(char *str, int size) {
 
@@ -68,6 +91,24 @@ char strncut(char *str, int size) {
 }
 
 
+
+/**
+ *char *searchValue - substring search from the beginning of the line
+ */
+>>>>>>> b04a376983d33d6a921447f33e63c7b0facc9436
+
+
+
+char strncut(char *str, int size) {
+
+<<<<<<< HEAD
+    for (int i = 0; i < size; i++)
+        cout << str[i];
+}
+
+
+=======
+>>>>>>> b04a376983d33d6a921447f33e63c7b0facc9436
 int strCompare( char *str1, char *str2)
 {
 

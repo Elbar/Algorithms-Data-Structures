@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -8,11 +7,8 @@ using namespace std;
 
 int strlength(char*);
 char *strcopy(char * s1, char * s2);
-char  *strncopy(char * s1, char *s2, int size);
-char strncut(char *str, int size);
-char strcat(char *str1, char *str2);
-char charAt(char *str1, int firstPos, int lastPos);
-char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos);
+char  *strncopy(char *dest, const char *src, int n);
+char * strcat(char * destination, const char * value);
 int strCompare(char *str1,char *str2);
 
 
@@ -35,17 +31,34 @@ char  *strcopy (char * s1, char * s2)
     return(s2);
 }
 
-char *strncopy(char * s1 , char * s2,int size) {
-    char *cp = s1;
+char* strncopy(char *dest, const char *src, int n)
+{
+    int i;
 
-    for (int i = 0; i < size; i++) {
-        while (cp[i++] == s1[i++]) { ;
-        }
-        return s1;
-    }
-
-
+    for(i = 0; i < n && src[i]!='\0'; i++)
+        dest[i] = src[i];
+    return dest;
 }
+
+
+
+
+/**
+ * Strcat function(concatenation)
+ */
+
+
+char * strcat(char * destination, const char * value)
+{
+    char *p = destination;
+
+    while ( *p != '\0' ) ++p;
+
+    while( *p++ = *value++ );
+
+    return destination;
+}
+
 
 /**
  * Cut letters from the set value
@@ -55,142 +68,61 @@ char *strncopy(char * s1 , char * s2,int size) {
 
 char strncut(char *str, int size) {
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
         cout << str[i];
-    }
-    cout << endl;
-
-    return 0;
-}
-
-/**
- * Strcat function(concatenation)
- */
-
-char strcat(char *str1, char *str2){
-    int size = 10;
-
-
-        for(int i=0;i<size;i++){
-
-                cout<<str1[i];
-
-            }
-
-    for(int i=0;i<size;i++){
-                cout<<str2[i];
-        }
-    cout<<endl;
-
-    return 0;
-
 }
 
 
-char strncat(char *str1, char *str2,int size){
 
-
-
-    for(int i=0;i<size;i++){
-
-        cout<<str1[i];
-
-    }
-
-    for(int i=0;i<size;i++){
-        cout<<str2[i];
-    }
-    cout<<endl;
-
-    return 0;
-
-}
-
-/**
- * Finding the letters from first to last value
- */
-
-char charAt(char *str1, int firstPos, int lastPos){
-
-    for(int i=firstPos;i<=lastPos;i++){
-        cout<<str1[i];
-
-    }
-    return 0;
-}
 /**
  *char *searchValue - substring search from the beginning of the line
  */
 
-char indexOf( char *str1, char *searchValue, int fromIndex, int lastPos){
-             int k=0;
-             char  *searchArg="Test";
-            for(int i=fromIndex;i<=lastPos;i++){
-
-                if(searchArg == searchValue) {
-                    k++;
-                    cout << str1[i]<<" - "<<k;
-                }
-            }
-    return 0;
 
 
 
-}
-
-
-int strCompare(char *str1,char *str2)
+int strCompare( char *str1, char *str2)
 {
-    if (strlength(str1)!=strlength(str2))
-        cout<<"Not equal";
 
-    int count=strlength(str1)+1;
-    while(*str1++==*str2++) --count;
-    if (count) return 0;
-    return 1;
+        while(*str1 == *str2)
+        {
+            if(*str1 == '\0')
+                return 0;
+            str1++;
+            str2++;
+        }
+        return (strlength(str1) - strlength(str2));
 }
 
 
 int main() {
 
-    char string1[] = "Testsasdwd";
-    char string2[] = "The Best or nothing";
+    char string1[] = "Test";
+    char string2[] = "Testd";
     char string3[] = "Lorem ipsum dolor sit amet";
     char str[50] = "Lorem ipsum dolor sit amet";
 
 
-
+     cout<<"----------------------------------------------"<<endl;
     cout<<"Length of string"<<" = "<<strlength(string1);
     cout<<"\n";
+    cout<<"-----------------------------------------------"<<endl;
 
-     cout<<strcopy(string1,string2);
+    cout<<"Strcopy = "<<strcopy(string1,string2);
     cout<<"\n";
-    cout<<strncopy(string1,string3, 10);
-    cout<<"\n";
-    cout<<strncut(str, 3);
-    cout<<"\n";
-    cout<<strcat(string1, string2);
-    cout<<"\n";
-    cout<<strncat(string1, string2,5);
-    cout<<"\n";
-    cout<<charAt(string1,1,6);
-    cout<<"\n";
-    cout<<indexOf(string1,"Test",2,6);
-    cout<<"\n";
-    cout<<strCompare(string1,string2);
 
+    cout<<"-----------------------------------------------"<<endl;
+    cout<<"strncopy = "<<strncopy(string1,string2, 4);
+    cout<<"\n";
 
+    cout<<"-----------------------------------------------"<<endl;
+
+    cout<<"strcat = "<<strcat(string1, string2);
+    cout<<"\n";
+    cout<<"-----------------------------------------------"<<endl;
+    cout<<"strcompare = "<<strCompare(string1,string2);
+    cout<<"\n";
 
 }
-
-
-
-
-
-
-
-
-
-
 
 

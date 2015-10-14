@@ -61,11 +61,6 @@ char * strcat(char * destination, const char * value)
 
 
 
-char strncut(char *str, int size) {
-
-    for (int i = 0; i < size; i++)
-        cout << str[i];
-}
 
 
 int strCompare( char *str1, char *str2)
@@ -85,7 +80,7 @@ int strCompare( char *str1, char *str2)
 int main() {
 
     char string1[] = "Test";
-    char string2[] = "Testd";
+    char string2[] = "TestLorem";
     char string3[] = "Lorem ipsum dolor sit amet";
     char str[50] = "Lorem ipsum dolor sit amet";
 

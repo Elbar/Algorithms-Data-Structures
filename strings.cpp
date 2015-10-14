@@ -94,7 +94,7 @@ int main() {
     cout<<"\n";
 
     cout<<"-----------------------------------------------"<<endl;
-    cout<<"strncopy = "<<strncopy(string1,string2, 4);
+    cout<<"strncopy = "<<strncopy(string1,string2, 5);
     cout<<"\n";
 
     cout<<"-----------------------------------------------"<<endl;

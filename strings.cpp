@@ -4,7 +4,7 @@ using namespace std;
 /**
  * Prototypes of functions
  */
-
+/*
 int strlength(char*);
 char *strcopy(char * s1, char * s2);
 char  *strncopy(char *dest, const char *src, int n);
@@ -45,7 +45,7 @@ char* strncopy(char *dest, const char *src, int n)
 
 /**
  * Strcat function(concatenation)
- */
+ *
 
 
 char * strcat(char * destination, const char * value)
@@ -85,7 +85,7 @@ int main() {
     char str[50] = "Lorem ipsum dolor sit amet";
 
 
-     cout<<"----------------------------------------------"<<endl;
+     cout<<"----------g------------------------------------"<<endl;
     cout<<"Length of string"<<" = "<<strlength(string1);
     cout<<"\n";
     cout<<"-----------------------------------------------"<<endl;
@@ -106,5 +106,5 @@ int main() {
     cout<<"\n";
 
 }
-
+*/
 

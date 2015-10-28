@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -24,10 +25,11 @@ int main()
             cout << "These coordinates don't exist. Retry again." << endl;
     }
 
-    for (int move = 1; move <= 64; move++)
+    for (int i = 1; i <= 64; i++)
     {
-        board[currentColumn][currentRow] = move;
+        board[currentColumn][currentRow] = i;
         status = false;
+
 
         for (int j = 0; j < hor; j++)
             if (currentColumn + vertical[j] < 8 && currentColumn + vertical[j] >=0
@@ -37,6 +39,7 @@ int main()
                 status = true;
                 break;
             }
+
 
         while (status == true)
         {
@@ -72,3 +75,4 @@ void boardPrint(int b[][ver], int horiz)
         cout << endl<<endl;
     }
 }
+ */

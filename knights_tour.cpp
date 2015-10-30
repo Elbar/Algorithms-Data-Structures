@@ -1,4 +1,4 @@
-/*
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -75,4 +75,3 @@ void boardPrint(int b[][ver], int horiz)
         cout << endl<<endl;
     }
 }
- */

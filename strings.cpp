@@ -4,7 +4,7 @@ using namespace std;
 /**
  * Prototypes of functions
  */
-/*
+
 int strlength(char*);
 char *strcopy(char * s1, char * s2);
 char  *strncopy(char *dest, const char *src, int n);
@@ -106,5 +106,5 @@ int main() {
     cout<<"\n";
 
 }
-*/
+
 

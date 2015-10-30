@@ -1,4 +1,4 @@
-
+/*
 #include<iostream>
 using namespace std;
 
@@ -29,7 +29,6 @@ int binarySearch(int array[], int size, int searchValue)
 
 }
 
-git
 int main()
   {
      int a[] = {12, 22 , 34, 47, 55, 67, 82, 98};
@@ -53,3 +52,4 @@ int main()
 
   }
 
+*/

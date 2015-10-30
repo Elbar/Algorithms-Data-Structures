@@ -24,7 +24,11 @@ public:
 
 private:
     //Data Members
+    double weight;
+    bool hungry;
 
 };
 
 #endif //LABS_VPET_H
+
+

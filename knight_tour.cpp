@@ -58,7 +58,7 @@ int main()
 
 
 
-            if ( gameBoard[currentColumn][currentRow] != 0)
+            if (gameBoard[currentColumn][currentRow] != 0)
             {
                 currentColumn = lastCol;
                 currentRow = lastRow;

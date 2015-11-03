@@ -1,51 +1,77 @@
-//
-// Created by root on 11/1/15.
-//
-#include<iostream>
-#define n 8
+#include <iostream>
 #include<iomanip>
-
 using namespace std;
 
 
-int main(){
-    int s =0 ;
-    int a[n][n];
-    int step = 0;
+const int columns = 8;
+const int rows = 8;
 
-    for(int i =0; i<n; i++) {
-        for (int j = 0; j < n; j++) {
-            a[i][j] = rand() % 1;
 
-            cout << setw(3)<<"a[" <<i <<"] "<<"["<<j<<"] "<< a[i][j];
-        }
-        cout<<endl;
+void displayBoard(int [][columns]);
+
+
+void displayBoard(int board[][columns])
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+            cout << setw(2)<<board[i][j]<<"  ";
+
+        cout << endl;
     }
-    cout<<"--------------------------------------------";
-    cout<<"--------------------------------------------";
+}
 
+int main()
+{
+
+    int horizontal [rows] = {2, 1, -1, -2, -2, -1, 1, 2};
+    int vertical [columns] = {-1, -2, -2, -1, 1, 2, 2, 1};
+    int count = 1;
+    int currentColumn = 0;
+    int currentRow = 3;
+    int moveNumber= 1;
+    int lastRow, lastCol;
+    int squaresLeft = 64;
+    int gameBoard[columns][rows];
+    for(int i= 0; i< columns; i++)
+    {
+        for (int j = 0; j< rows; j++)
+        {
+            gameBoard[i][j] = 0;
+        }
+    }
+
+    displayBoard (gameBoard);
     cout<<endl;
+    gameBoard[currentColumn][currentRow]= count;
+    count++;
 
-    int knight = a[0][3] = 1;
-    for(int i=0 ; i<n; i++){
-        for(int j =0; j<n;j++) {
-            if (a[i][j+2] + a[i+2][j+2] + a[i+2][j+3] + a[i+1][j] == 0 && knight) {
-                    a[i][j] = 1;
 
+    while (squaresLeft)
+    {
+        if (count <=64)
+        {
+            lastCol = currentColumn;
+            lastRow = currentRow;
+            currentColumn += vertical[moveNumber];
+            currentRow += horizontal[moveNumber];
+
+
+
+            if ( gameBoard[currentColumn][currentRow] != 0)
+            {
+                currentColumn = lastCol;
+                currentRow = lastRow;
+                moveNumber++;
             }
-            cout << setw(3) << "a[" << i << "] " << "[" << j << "] "<< a[i][j];
-
-
+            else
+            {
+                gameBoard[currentColumn][currentRow] = count;
+                count++;
+                moveNumber = gameBoard[currentColumn][currentRow];
+            }
         }
-        cout<<endl;
-        }
-
-
-
-
-
-
-
-
-
-};
+        squaresLeft--;
+    }
+    displayBoard (gameBoard);
+}

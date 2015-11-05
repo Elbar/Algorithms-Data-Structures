@@ -1,0 +1,1 @@
+full struct of bank

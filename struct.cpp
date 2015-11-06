@@ -1,62 +1,121 @@
 #include <iostream>
+#include <iomanip>
 #include <string.h>
 
-using namespace std;
-struct sotr
+using  namespace std;
+void show_struct(struct bank client[], int size);
+
+struct bank
 {
-    char familia[20];
-    int day;
-    int mesac;
-    int year;
+    char surname[20];
+    char name[10];
+    char lastname[15];
+    int accountNumber;
+    int account;
+    int diffDate;
 };
-int  main()
+
+
+
+
+
+void show_struct(struct bank client[], int size)
+
 {
-    sotr sot[128];
-    int i,j,a,m;
-    char* str;
-    cout<<"Введите колличество сотрудников: ";
-    cin>>a;
-    for (i=0;i<a;i++)
-    {
-        cout<<"\nФамилия сотрудника №"<<i+1<<": ";
-        cin>>sot[i].familia;
-        cout<<"\nДень рождения сотрудника "<<sot[i].familia<<": ";
-        cin>>sot[i].day;
-        cout<<"\nМесяц рождения сотрудника "<<sot[i].familia<<": ";
-        cin>>sot[i].mesac;
-        cout<<"\nГод рождения сотрудника "<<sot[i].familia<<": ";
-        cin>>sot[i].year;
+    cout<<"--------------------------------------------------------------------------------";
+    cout<<"\n";
+
+    for(int i = 0;i < size;i++) {
+
+
+
+        cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
+        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].diffDate;
+            cout<<endl;
+
+        }
+        cout<<"--------------------------------------------------------------------------------";
+
+        cout<<"\n"<<endl;
     }
-    for (j=0;j<=a;j++)
+
+
+
+void sortValues(struct bank client[],int size ){
+    char* str;
+    char* str2;
+    char* str3;
+  int i;
+    int j;
+    for (i=0;i<=size;i++)
     {
-        for (i=1;i<a;i++)
+        for (j=1;j<size;j++)
         {
-            if (strcmp(sot[i-1].familia, sot[i].familia)>0)
+            if (strcmp(client[i].surname, client[i].surname)>0)
             {
 
-                strcpy(str, sot[i-1].familia);
-                strcpy(sot[i-1].familia, sot[i].familia);
-                strcpy(sot[i].familia, str);
+                strcpy(str, client[i].surname);
+                strcpy( client[i-1].surname,  client[i].surname);
+                strcpy(client[i].surname, str);
 
-                m=sot[i-1].day;
-                sot[i-1].day=sot[i].day;
-                sot[i].day=m;
-
-                m=sot[i-1].mesac;
-                sot[i-1].mesac=sot[i].mesac;
-                sot[i].mesac=m;
-
-                m=sot[i-1].year;
-                sot[i-1].year=sot[i].year;
-                sot[i].year=m;
             }
+            if(strcmp(client[i].name, client[i].name)>0){
+                strcpy(str2, client[i].name);
+                strcpy(client[i-1].name, client[i].name);
+                strcpy(client[i].name, str2);
+
+
+            }
+            if(strcmp(client[i].lastname, client[i].lastname)>0){
+                strcpy(str, client[i].lastname);
+                strcpy(client[i-1].lastname, client[i].lastname);
+                strcpy(client[i].lastname, str);
+
+            }
+
         }
+
+
     }
-    for (i=0;i<a;i++)
+    cout<<"--------------------------------------------------------------------------------";
+    cout<<"\n";
+
+    for(int i = 0;i < size;i++) {
+
+
+
+        cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
+        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].diffDate;
+        cout<<endl;
+
+    }
+    cout<<"--------------------------------------------------------------------------------";
+
+    cout<<"\n"<<endl;
+
+}
+int  main()
+{
+    bank client[128];
+    int i,j,n;
+
+    cout<<"Count of clients: ";
+    cin>>n;
+    int tmp = n;
+    for (i=0;i<n;i++)
     {
-        cout<<sot[i].familia<<endl;
-        cout<<sot[i].day<<endl;
-        cout<<sot[i].mesac<<endl;
-        cout<<sot[i].year<<endl<<endl;
+        cout<<"Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
+        cin>>client[i].surname>>client[i].name>>client[i].lastname;
+
+        cout<<"Account Number & Bank account  of client(via space)"<<":\n ";
+        cin>>client[i].accountNumber>>client[i].account;
+
+        cout<<"Last Modified"<<":\n ";
+        cin>>client[i].diffDate;
     }
+
+    show_struct(client, tmp);
+    cout<<"Sorted values\n";
+    sortValues(client,tmp);
+
 }

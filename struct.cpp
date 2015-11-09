@@ -12,11 +12,27 @@ struct bank
     char lastname[15];
     int accountNumber;
     int account;
-    int diffDate;
+    double day;
+    double month;
+    int year;
 };
 
 
+int  inputValues(struct bank client[], int size){
+    int i;
+for (i=0;i<size;i++)
+{
+        cout<<"Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
+        cin>>client[i].surname>>client[i].name>>client[i].lastname;
 
+        cout<<"Account Number & Bank account  of client(please input 10 characters via space)"<<":\n ";
+        cin>>client[i].accountNumber>>client[i].account;
+
+        cout<<"Last Modified(dd-mm-yyyy)"<<":\n ";
+        cin>>client[i].day>>client[i].month>>client[i].year;
+}
+
+}
 
 
 void show_struct(struct bank client[], int size)
@@ -30,7 +46,7 @@ void show_struct(struct bank client[], int size)
 
 
         cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
-        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].diffDate;
+        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
             cout<<endl;
 
         }
@@ -40,82 +56,56 @@ void show_struct(struct bank client[], int size)
     }
 
 
-
-void sortValues(struct bank client[],int size ){
-    char* str;
-    char* str2;
-    char* str3;
-  int i;
-    int j;
-    for (i=0;i<=size;i++)
+void Alphasort (bank client[], int size)
+{
+    int j, i;
+    bank temp;
+    for(i = 0; i < size - 1; i++)
     {
-        for (j=1;j<size;j++)
+        for(j = i + 1; j < size; j++)
         {
-            if (strcmp(client[i].surname, client[i].surname)>0)
+            if(strcmp(client[i].surname,client[j].surname) > 0)
             {
-
-                strcpy(str, client[i].surname);
-                strcpy( client[i-1].surname,  client[i].surname);
-                strcpy(client[i].surname, str);
-
+                temp = client[i];
+                client[i] = client[j];
+                client[j] = temp;
             }
-            if(strcmp(client[i].name, client[i].name)>0){
-                strcpy(str2, client[i].name);
-                strcpy(client[i-1].name, client[i].name);
-                strcpy(client[i].name, str2);
+        }
+    }
 
 
-            }
-            if(strcmp(client[i].lastname, client[i].lastname)>0){
-                strcpy(str, client[i].lastname);
-                strcpy(client[i-1].lastname, client[i].lastname);
-                strcpy(client[i].lastname, str);
+    {
+        cout<<"--------------------------------------------------------------------------------";
+        cout<<"\n";
 
-            }
+        for(int i = 0;i < size;i++) {
+
+
+
+            cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
+            <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
+            cout<<endl;
 
         }
+        cout<<"--------------------------------------------------------------------------------";
 
-
+        cout<<"\n"<<endl;
     }
-    cout<<"--------------------------------------------------------------------------------";
-    cout<<"\n";
-
-    for(int i = 0;i < size;i++) {
-
-
-
-        cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
-        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].diffDate;
-        cout<<endl;
-
-    }
-    cout<<"--------------------------------------------------------------------------------";
-
-    cout<<"\n"<<endl;
-
 }
+
+
 int  main()
 {
     bank client[128];
-    int i,j,n;
-
+    int n;
     cout<<"Count of clients: ";
     cin>>n;
     int tmp = n;
-    for (i=0;i<n;i++)
-    {
-        cout<<"Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
-        cin>>client[i].surname>>client[i].name>>client[i].lastname;
 
-        cout<<"Account Number & Bank account  of client(via space)"<<":\n ";
-        cin>>client[i].accountNumber>>client[i].account;
-
-        cout<<"Last Modified"<<":\n ";
-        cin>>client[i].diffDate;
-    }
-
+    inputValues(client, tmp);
     show_struct(client, tmp);
-    cout<<"Sorted values\n";
-    sortValues(client,tmp);
+    cout<<"After sorting\n";
+    Alphasort(client, tmp);
+
 
 }

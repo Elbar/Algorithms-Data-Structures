@@ -145,6 +145,18 @@ int  main()
 
     }
 
+    cin>>userValue;
+    int result;
+    result = linearSearch(client,userValue,tmp);
+    if(result >= 0)
+    {
+        cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}";
+
+
+    } else
+    {
+        cout<<"The  "<<userValue<<" was not found.";
+    }
 
 
 }

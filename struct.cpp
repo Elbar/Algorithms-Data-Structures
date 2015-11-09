@@ -94,9 +94,29 @@ void Alphasort (bank client[], int size)
 }
 
 
+char  linearSearch (bank client[], const string name,int size) {
+    for (int i = 0; i < size; ++i) {
+        if (client[i].name == name) {
+            return i;
+
+        }
+
+    }
+    return -1;
+}
+
+void positiveanswer(){
+    cout<<"Let's input your search value: ";
+}
+
+
+
+
 int  main()
 {
     bank client[128];
+
+    char userValue[10];
     int n;
     cout<<"Count of clients: ";
     cin>>n;
@@ -108,4 +128,24 @@ int  main()
     Alphasort(client, tmp);
 
 
+
+
+    cout<<"Do you want to search person by name and her position:"<<endl;
+    cout<<"1. Yes\n";
+    cout<<"2. No\n";
+   int input;
+    cin>>input;
+    switch(input){
+        case 1:
+            positiveanswer();
+
+        case 2:
+            break;
+
+
+    }
+
+
+
 }
+

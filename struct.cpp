@@ -1,21 +1,19 @@
 #include <iostream>
 #include <iomanip>
 #include <string.h>
+#include "struct.h"
 
 using  namespace std;
+/**
+ * Prototypes of functions
+ */
+int  inputValues(struct bank client[], int size);
 void show_struct(struct bank client[], int size);
+void searchValue(struct bank client[], int result);
+void alphaSort (bank client[], int size);
+char linearSearch (bank client[], const string name,int size);
+void positiveanswer();
 
-struct bank
-{
-    char surname[20];
-    char name[10];
-    char lastname[15];
-    int accountNumber;
-    int account;
-    double day;
-    double month;
-    int year;
-};
 
 
 int  inputValues(struct bank client[], int size){
@@ -170,7 +168,7 @@ int  main()
         cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}\n";
         searchValue(client, result);
 
-
+g
 
 
     } else

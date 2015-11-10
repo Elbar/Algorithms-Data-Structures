@@ -55,8 +55,28 @@ void show_struct(struct bank client[], int size)
         cout<<"\n"<<endl;
     }
 
+void searchValue(struct bank client[], int size)
 
-void Alphasort (bank client[], int size)
+{
+    cout<<"--------------------------------------------------------------------------------";
+    cout<<"\n";
+
+    for(int i = 0;i < size;i++) {
+
+
+
+        cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
+        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
+        cout<<endl;
+
+    }
+    cout<<"--------------------------------------------------------------------------------";
+
+    cout<<"\n"<<endl;
+}
+
+
+void alphaSort (bank client[], int size)
 {
     int j, i;
     bank temp;
@@ -94,19 +114,22 @@ void Alphasort (bank client[], int size)
 }
 
 
-char  linearSearch (bank client[], const string name,int size) {
+char linearSearch (bank client[], const string name,int size) {
+    bank temp;
     for (int i = 0; i < size; ++i) {
         if (client[i].name == name) {
             return i;
 
         }
 
+
     }
+
     return -1;
 }
 
 void positiveanswer(){
-    cout<<"Let's input your search value: ";
+    cout<<"Let's input your search value... : ";
 }
 
 
@@ -125,7 +148,7 @@ int  main()
     inputValues(client, tmp);
     show_struct(client, tmp);
     cout<<"After sorting\n";
-    Alphasort(client, tmp);
+    alphaSort(client, tmp);
 
 
 
@@ -150,7 +173,10 @@ int  main()
     result = linearSearch(client,userValue,tmp);
     if(result >= 0)
     {
-        cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}";
+        cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}\n";
+        searchValue(client, result);
+
+
 
 
     } else

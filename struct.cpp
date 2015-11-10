@@ -55,24 +55,16 @@ void show_struct(struct bank client[], int size)
         cout<<"\n"<<endl;
     }
 
-void searchValue(struct bank client[], int size)
-
-{
-    cout<<"--------------------------------------------------------------------------------";
-    cout<<"\n";
-
-    for(int i = 0;i < size;i++) {
+void searchValue(struct bank client[], int result) {
+    cout << "--------------------------------------------------------------------------------";
+    cout << "\n";
 
 
+    cout << " | " << client[result].surname << " | " << client[result].name << " | " << client[result].lastname << " | "
+    << client[result].account << " | " << client[result].accountNumber << " | " << client[result].day << "." <<
+    client[result].month << "." << client[result].year;
+    cout << endl;
 
-        cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].lastname<<" | "
-        <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
-        cout<<endl;
-
-    }
-    cout<<"--------------------------------------------------------------------------------";
-
-    cout<<"\n"<<endl;
 }
 
 
@@ -149,6 +141,7 @@ int  main()
     show_struct(client, tmp);
     cout<<"After sorting\n";
     alphaSort(client, tmp);
+
 
 
 

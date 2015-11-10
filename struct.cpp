@@ -64,6 +64,7 @@ void searchValue(struct bank client[], int result) {
     << client[result].account << " | " << client[result].accountNumber << " | " << client[result].day << "." <<
     client[result].month << "." << client[result].year;
     cout << endl;
+    cout << "--------------------------------------------------------------------------------";
 
 }
 

@@ -168,7 +168,7 @@ int  main()
         cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}\n";
         searchValue(client, result);
 
-g
+
 
 
     } else

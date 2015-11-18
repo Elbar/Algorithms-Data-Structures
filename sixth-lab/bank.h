@@ -1,72 +1,25 @@
-//
-// Created by root on 11/18/15.
-//
-
-#ifndef LABS_BANK_H
-#define LABS_BANK_H
 #include<string>
-#include<iostream>
-using namespace std;
 
-
-class bank {
-
+using  namespace std;
+class Bank
+{
 private:
-    string surname;
-    string name;
-    string middle_name;
-    int accountNumber;
-    int account;
-    double day;
-    double month;
-    int year;
+    int day,month,year;
+    string surname, name, middle_name;
 
 public:
-        void set_name(string student_name) {
-            name = student_name;
-        }
 
-        string get_name() {
-            return name;
-        }
 
-        void set_surname(string client_surname) {
-            surname = client_surname;
-
-        }
-
-        string get_surname() {
-             return surname;
+    void setValue(string client_surname, string client_name, string client_middle_name)
+    {
+        surname = client_surname;
+        name = client_name ;
+        middle_name  = client_middle_name;
     }
-
-         void set_middle_name(string client_middle_name) {
-           middle_name = client_middle_name;
-
-    }
-
-            string get_middle_name() {
-                return middle_name;
-            }
-
-    void inputValues(bank client[], int size){
-        int i;
-        for (i=0;i<size;i++)
-        {
-            cout<<"Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
-            cin>>client[i].surname>>client[i].name>>client[i].middle_name;
-
-            cout<<"Account Number & Bank account  of client(please input 10 characters via space)"<<":\n ";
-            cin>>client[i].accountNumber>>client[i].account;
-
-            cout<<"Last Modified(dd-mm-yyyy)"<<":\n ";
-            cin>>client[i].day>>client[i].month>>client[i].year;
+    void getDate(int tmp)
+    {
+        for(int i  = 0; i< tmp; i++) {
+            cout << "Details:\n " << surname[i] << "|" << name[i] << "|" << middle_name[i] << endl;
         }
-
     }
-
-
-
 };
-
-
-#endif //LABS_BANK_H

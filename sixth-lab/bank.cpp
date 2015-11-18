@@ -1,39 +1,27 @@
-//
-// Created by root on 11/18/15.
-//
-
+#include <iostream>
 #include "bank.h"
-#include<iostream>
-
 using namespace std;
+
+
 int main()
 {
-    bank client ;
 
-    string name;
-    string surname;
-    string middle_name;
+    Bank client;
+    int tmp;
+    string surname, name, middle_name;
+    cout<<"Count of clients";
+    cin>>tmp;
 
-
-
-
-
-    cout << "Last name: ";
-    getline(cin, surname);
-    cout << "Name: ";
-    getline(cin, name);
-    cout << "Middle name: ";
-    getline(cin, middle_name);
+    for(int i = 0; i< tmp; i++) {
+        cout << "Введите ФИО:\n";
+        cin >> surname;
+        cin >> name;
+        cin >> middle_name;
 
 
-    client.set_surname(surname);
-    client.set_name(name);
-    client.set_middle_name(middle_name);
-
-
-
+        client.setValue(surname, name, middle_name);
+    }
+    client.getDate(tmp);
+    system("pause");
     return 0;
 }
-
-
-

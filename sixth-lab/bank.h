@@ -4,7 +4,7 @@ using  namespace std;
 class Bank
 {
 private:
-    int day,month,year;
+    int day,month,year,account;
     string surname, name, middle_name;
 
 public:

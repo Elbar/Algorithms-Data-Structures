@@ -1,5 +1,6 @@
 #include<iostream>
 #include <string.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,9 +44,9 @@ public:
     {
           cout<<"--------------------------------------------------------------------------------";
           cout<<"\n";
-
+        cout<<"ID"<<"|"<<"Surname"<<setw(3)<<"|"<<"Name"<<setw(3)<<"|"<<"Middle name"<<setw(5)<<"|"<<"Account"<<setw(3)<<"|"<<"AccountNumber"<<setw(3)<<"|"<<"dd-mm-yyy"<<endl;
+        cout<<"--------------------------------------------------------------------------------"<<endl;
         for(int i = 0;i < size;i++) {
-
 
 
                 cout<<client[i].id<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
@@ -79,8 +80,11 @@ public:
 
 
         {
+            cout<<"\n";
             cout<<"--------------------------------------------------------------------------------";
             cout<<"\n";
+            cout<<"ID"<<"|"<<"Surname"<<setw(3)<<"|"<<"Name"<<setw(3)<<"|"<<"Middle name"<<setw(3)<<"|"<<"Account"<<setw(3)<<"|"<<"AccountNumber"<<setw(3)<<"|"<<"dd-mm-yyy"<<endl;
+            cout<<"--------------------------------------------------------------------------------"<<endl;
 
             for(int i = 0;i < size;i++) {
 
@@ -98,10 +102,25 @@ public:
     }
 
 
-    int  linearSearch (bank client[], const string name,int size) {
-        bank temp;
+    int  linearSearchByName(bank *client, const string name, int size) {
+
         for (int i = 0; i < size; ++i) {
             if (client[i].name == name) {
+                return i;
+
+            }
+
+
+        }
+
+        return -1;
+    }
+
+    int linearSearchById(bank client[], const int id,int size){
+
+
+        for (int i = 0; i < size; ++i) {
+            if (client[i].id == id) {
                 return i;
 
             }
@@ -145,37 +164,51 @@ int main()
 
 
     char userValue[10];
+    int choice;
 
-    cout<<"Do you want to search person by name and her position:"<<endl;
-    cout<<"1. Yes\n";
-    cout<<"2. No\n";
+    cout<<"Do you want to search person by name and her position or search by id?"<<endl;
+    cout<<"1.By name: \n";
+    cout<<"2.By id: \n";
+    cout<<"3.None of them\n";
     int input;
     cin>>input;
     switch(input){
         case 1:
             client->positiveanswer();
 
+            cin>>userValue;
+            int result;
+            result = client->linearSearchByName(client, userValue, size);
+            if(result >= 0)
+            {
+                cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}\n";
+                client->searchValue(client, result);
+
+            } else
+            {
+                cout<<"The  "<<userValue<<" was not found.";
+            }
+
         case 2:
+            client->positiveanswer();
+            cin>>choice;
+
+            result = client->linearSearchById(client,choice, size);
+            if(result >= 0)
+            {
+                cout<<"The id "<<choice <<" was found at position "<<"{"<<result<<"}\n";
+                client->searchValue(client, result);
+
+            } else
+            {
+                cout<<"The  "<<userValue<<" was not found.";
+            }
+        case 3:
             break;
 
 
     }
 
-    cin>>userValue;
-    int result;
-    result = client->linearSearch(client,userValue,size);
-    if(result >= 0)
-    {
-        cout<<"The name "<<userValue<<" was found at position "<<"{"<<result<<"}\n";
-        client->searchValue(client, result);
-
-
-
-
-    } else
-    {
-        cout<<"The  "<<userValue<<" was not found.";
-    }
 
 
 }

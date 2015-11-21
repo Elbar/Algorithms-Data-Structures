@@ -6,6 +6,7 @@ using namespace std;
 class bank
 {
 private:
+    int id ;
     char surname[10];
     string name;
     string middle_name;
@@ -22,32 +23,34 @@ public:
         int i;
         for (i=0;i<size;i++)
         {
-            cout<<"Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
-            cin>>client[i].surname>>client[i].name>>client[i].middle_name;
+            cout<<"ID, Surname,Name & Last name of client(via space) №"<<i+1<<":\n ";
+            cin>>client[i].id>>client[i].surname>>client[i].name>>client[i].middle_name;
 
             cout<<"Account Number & Bank account  of client(please input 10 characters via space)"<<":\n ";
             cin>>client[i].accountNumber>>client[i].account;
 
             cout<<"Last Modified(dd-mm-yyyy)"<<":\n ";
             cin>>client[i].day>>client[i].month>>client[i].year;
+
         }
+
 
     }
 
 
-    void show_struct(struct bank client[], int size)
+    void show_struct(bank client[], int size)
 
     {
-        cout<<"--------------------------------------------------------------------------------";
-        cout<<"\n";
+          cout<<"--------------------------------------------------------------------------------";
+          cout<<"\n";
 
         for(int i = 0;i < size;i++) {
 
 
 
-            cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
-            <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
-            cout<<endl;
+                cout<<client[i].id<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
+                <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
+                cout<<endl;
 
         }
         cout<<"--------------------------------------------------------------------------------";
@@ -83,7 +86,7 @@ public:
 
 
 
-                cout<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
+                cout<<client[i].id<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
                 <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
                 cout<<endl;
 
@@ -108,6 +111,8 @@ public:
 
         return -1;
     }
+
+
 
     void searchValue( bank client[], int result) {
         cout << "--------------------------------------------------------------------------------";

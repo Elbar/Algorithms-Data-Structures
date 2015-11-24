@@ -7,15 +7,15 @@ using namespace std;
 class bank
 {
 private:
-    int id ;
-    char surname[10];
-    string name;
-    string middle_name;
-    int account;
-    int accountNumber;
-    double day;
-    double month;
-    int year;
+        int id ;
+        char surname[10];
+        string name;
+        string middle_name;
+        int account;
+        int accountNumber;
+        double day;
+        double month;
+        int year;
 
 public:
 
@@ -38,25 +38,23 @@ public:
 
     }
 
-
     void show_struct(bank client[], int size)
 
     {
           cout<<"--------------------------------------------------------------------------------";
           cout<<"\n";
-        cout<<"ID"<<"|"<<"Surname"<<setw(3)<<"|"<<"Name"<<setw(3)<<"|"<<"Middle name"<<setw(5)<<"|"<<"Account"<<setw(3)<<"|"<<"AccountNumber"<<setw(3)<<"|"<<"dd-mm-yyy"<<endl;
-        cout<<"--------------------------------------------------------------------------------"<<endl;
+          cout<<"ID"<<"|"<<"Surname"<<setw(3)<<"|"<<"Name"<<setw(3)<<"|"<<"Middle name"<<setw(5)<<"|"<<"Account"<<setw(3)<<"|"<<"AccountNumber"<<setw(3)<<"|"<<"dd-mm-yyy"<<endl;
+          cout<<"--------------------------------------------------------------------------------"<<endl;
         for(int i = 0;i < size;i++) {
 
-
-                cout<<client[i].id<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
-                <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
-                cout<<endl;
+              cout<<client[i].id<<" | "<<client[i].surname<<" | "<<client[i].name<<" | "<<client[i].middle_name<<" | "
+              <<client[i].account<<" | "<<client[i].accountNumber<<" | "<<client[i].day<<"."<<client[i].month<<"."<<client[i].year;
+              cout<<endl;
 
         }
-        cout<<"--------------------------------------------------------------------------------";
+         cout<<"--------------------------------------------------------------------------------";
 
-        cout<<"\n"<<endl;
+         cout<<"\n"<<endl;
     }
 
 
@@ -109,8 +107,6 @@ public:
                 return i;
 
             }
-
-
         }
 
         return -1;
@@ -124,8 +120,6 @@ public:
                 return i;
 
             }
-
-
         }
 
         return -1;
@@ -166,12 +160,12 @@ int main()
     char userValue[10];
     int choice;
 
-    cout<<"Do you want to search person by name and her position or search by id?"<<endl;
-    cout<<"1.By name: \n";
-    cout<<"2.By id: \n";
-    cout<<"3.None of them\n";
-    int input;
-    cin>>input;
+        cout<<"Do you want to search person by name and her position or search by id?"<<endl;
+        cout<<"1.By name: \n";
+        cout<<"2.By id: \n";
+        cout<<"3.None of them\n";
+        int input;
+        cin>>input;
     switch(input){
         case 1:
             client->positiveanswer();
@@ -188,6 +182,7 @@ int main()
             {
                 cout<<"The  "<<userValue<<" was not found.";
             }
+            break;
 
         case 2:
             client->positiveanswer();
@@ -208,7 +203,4 @@ int main()
 
 
     }
-
-
-
 }

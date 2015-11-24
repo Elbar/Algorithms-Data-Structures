@@ -9,6 +9,11 @@ using namespace std;
 
 template<class t>
 
+t Large(t n1, t n2){
+    return (n1>n2) ? n1:n2;
+}
+
+template <class  t>
 void swap(t *x,t *y)
 {
     t temp;
@@ -27,15 +32,22 @@ void fun(int a,int b,float c,float d)
     cout<<"\nc and d after swaping  :"<<c<<"\t"<<d;
 }
 
+
 int main()
 {
     int a,b;
     float c,d;
+    char c1, c2;
 
     cout<<"Enter A,B values(integer):";
     cin>>a>>b;
     cout<<"Enter C,D values(float):";
     cin>>c>>d;
     fun(a,b,c,d);
+
+    cout<<"\n\nEnter two characters: ";
+    cin>>c1>>c2;
+    cout<<Large(c1, c2)<<" has larger ASCII value.";
+    return 0;
 
 }

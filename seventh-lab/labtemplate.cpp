@@ -2,9 +2,8 @@
 using namespace std;
 
 
-
 template <class t>
-void input(t arr, int n){
+t input(t arr[], int n){
 
     for(int i = 0; i< n; i++){
         cin>>arr[i];
@@ -15,14 +14,14 @@ void input(t arr, int n){
 
 template <class t>
 
-void show(t arr,int n) {
+t  show(t arr[],int n) {
     for(int i = 0 ; i< n; i++){
         cout<<" "<<arr[i];
     }
 }
 
 template <class t>
-void swap(t arr, int n){
+t swap(t arr[], int n){
 
 
                 for ( int i = 0; i < n ; i++) {
@@ -38,20 +37,53 @@ void swap(t arr, int n){
 
             }
 
+
            int main() {
 
-               int  size;
+               int size;
+               int arr[size];
+               float array[size];
 
-               cout<<"Please input a count of elements in array...";
-               cin>>size;
 
-               int  arr[size];
+               cout<<"Please choice a number whatever you want\n";
+               cout<<"1. integer\n";
+               cout<<"2. float \n";
+               cout<<">>";
+               int choice;
+               cin>>choice;
 
-               input(arr, size);
-               show(arr, size);
-               cout<<endl;
-               swap(arr, size);
-               return 0;
+
+               switch (choice) {
+
+                   case 1:
+                       cout << "Please input a count of elements in array\n";
+                       cout<<">>";
+
+                       int size;
+                       cin >> size;
+                       cout << "First version:\n >>";
+
+                       input(arr, size);
+                       show(arr, size);
+                       cout << endl;
+                       swap(arr, size);
+                       break;
+
+                   case 2:
+                       cout << "Please input a count of elements in array\n >>";
+
+                       cin >> size;
+                       cout << "Second version:\n >>";
+
+                       input(array, size);
+                       show(array, size);
+                       cout << endl;
+                       swap(array, size);
+                       return 0;
+                   default:
+                       break;
+               }
+
 
 
            }

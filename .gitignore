@@ -3,6 +3,7 @@
 
 # IntelliJ project files
 .idea
+CMakeLists.txt
 *.iml
 out
 gen

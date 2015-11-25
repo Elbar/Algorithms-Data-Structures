@@ -1,65 +1,57 @@
-//
-// Created by root on 11/24/15.
-//
-
-#include<iostream>
-#include <stdlib.h>
-
-int const n = 10;
-
-
-
+#include <iostream>
 using namespace std;
 
 
-template<class t>
 
-t func(t a[], int n){
-    t temp;
-
-    for(int i = 0 ;i < n; i++){
-
-        if(a[i] == 1){
-            temp = a[i] * a[i + 1];
-            a[i] =  temp;
-
-
-        }
-
-
-        cout<<" "<<a[i];
-
-    }
-    cout<<endl;
-}
-
-template <class  t>
-
- void show(t a[], int n){
+template <class t>
+void input(t arr, int n){
 
     for(int i = 0; i< n; i++){
-        cout<<' '<<a[i];
+        cin>>arr[i];
+
 
     }
-    cout<<endl;
 }
 
+template <class t>
 
-
-
-int main() {
-
-
-
-    int a[n];
-    int i;
-    srand(time(NULL));
-    for (int i = 0; i < n; i++) {
-        a[i] = rand()% 10 ;
-         func(a, n);
+void show(t arr,int n) {
+    for(int i = 0 ; i< n; i++){
+        cout<<" "<<arr[i];
     }
-    cout << endl;
-
-
-    show(a, n);
 }
+
+template <class t>
+void swap(t arr, int n){
+
+
+                for ( int i = 0; i < n ; i++) {
+
+                    if(arr[i] == 1) {
+                        arr[i] =arr[i+1] * arr[i + 2];
+
+                    }
+                    cout << " " << arr[i];
+
+
+                 }
+
+            }
+
+           int main() {
+
+               int  size;
+
+               cout<<"Please input a count of elements in array...";
+               cin>>size;
+
+               int  arr[size];
+
+               input(arr, size);
+               show(arr, size);
+               cout<<endl;
+               swap(arr, size);
+               return 0;
+
+
+           }

@@ -7,13 +7,10 @@ t input(t arr[], int n){
 
     for(int i = 0; i< n; i++){
         cin>>arr[i];
-
-
     }
 }
 
 template <class t>
-
 t  show(t arr[],int n) {
     for(int i = 0 ; i< n; i++){
         cout<<" "<<arr[i];

@@ -4,7 +4,7 @@
 # IntelliJ project files
 .idea
 CMakeLists.txt
-*.iml
+/CMakeLists.txt
 out
 gen
 # Created by .ignore support plugin (hsz.mobi)

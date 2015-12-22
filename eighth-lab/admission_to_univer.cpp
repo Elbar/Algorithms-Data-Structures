@@ -21,7 +21,7 @@ struct univer {
     char name[10];
     struct faculty faculty1;
     struct address address1;
-    float point;
+    int point;
     char city[20];
 
 
@@ -116,20 +116,19 @@ void bubble_sort(univer univer1[], int size) {
 
 }
 
-
 void select_sort(univer univer1[], int size) {
-    int i,j,k;
-    float temp;
+    int i, j, k;
+
 
     printf("selectsort starts \n");
 
     for (i = 0; i < size; i++) {
-        k=i;
+        k = i;
         for (j = i + 1; j <= size; j++)
             if (univer1[j].point < univer1[k].point) {
-                temp = univer1[k].point;
+                k = univer1[k].point;
                 univer1[k].point = univer1[i].point;
-                univer1[i].point = temp;
+                univer1[i].point = k;
 
             }
     }
@@ -153,6 +152,78 @@ void select_sort(univer univer1[], int size) {
     printf("selectsort() ends \n");
 }
 
+/*
+void merge_sort(univer univer1[], int l = 0, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+
+    create temp arrays
+    univer left[n1], right[n2];
+
+    Copy data to temp arrays L[] and R[]
+    for(i = 0; i < n1; i++)
+        left[i] = univer1[l + i];
+    for(j = 0; j < n2; j++)
+        right[j] = univer1[m + 1+ j];
+
+     Merge the temp arrays back into arr[l..r]
+
+    i = 0;
+    j = 0;
+    k = l;
+    while (i < n1 && j < n2)
+    {
+        if (left[i].point <= right[j].point)
+        {
+            univer1[k] = left[i];
+            i++;
+        }
+        else
+        {
+            univer1[k] = right[j];
+            j++;
+        }
+        k++;
+    }
+
+     Copy the remaining elements of L[], if there are any
+    while (i < n1)
+    {
+        univer1[k] = left[i];
+        i++;
+        k++;
+    }
+
+     Copy the remaining elements of R[], if there are any
+    while (j < n2)
+    {
+        univer1[k] = right[j];
+        j++;
+        k++;
+    }
+}
+
+l is for left index and r is right index of the sub-array
+  of arr to be sorted
+void mergeSort(univer univer1[],  int l, int r)
+{
+
+    if (l < r)
+    {
+        int m = l+(r-l)/2; //Same as (l+r)/2, but avoids overflow for large l and h
+        mergeSort(univer1, l, m);
+        mergeSort(univer1,  m+1, r);
+        merge_sort(univer1, l, m, r);
+
+        printf("mergesort() ends \n");
+
+    }
+}
+*/
+
+
 
 int main() {
     univer university[128];
@@ -164,27 +235,36 @@ int main() {
     inputValues(university, tmp);
     show(university, tmp);
 
-
     clock_t t;
     t = clock();
     bubble_sort(university, tmp);
     t = clock() - t;
-     double time_taken = ((double) t) / CLOCKS_PER_SEC;
+    double time_taken = ((double) t) / CLOCKS_PER_SEC;
 
-         printf("bubblesort() took %f seconds to execute \n", time_taken);
-             printf("------------------------------------------------------------------------");
-                 printf("\n");
+    printf("bubblesort() took %f seconds to execute \n", time_taken);
+    printf("------------------------------------------------------------------------");
+    printf("\n");
 
-    clock_t time;
-    time = clock();
+    clock_t time1;
+    time1 = clock();
     select_sort(university, tmp);
-    time = clock() - time;
-    double time_taken2 = ((double) time) / CLOCKS_PER_SEC;
+    time1 = clock() - time1;
+    double time_taken1 = ((double) time1) / CLOCKS_PER_SEC;
 
-    printf("selectsort() took %f seconds to execute \n", time_taken2);
+    printf("selectsort() took %f seconds to execute \n", time_taken1);
 
+   /* clock_t time2;
+    time2 = clock();
+    merge_sort(university, tmp);
+    time2 = clock() - time2;
+    double time_taken2 = ((double) time2) / CLOCKS_PER_SEC;
 
+    printf("mergesort() took %f seconds to execute \n", time_taken2);
+    printf("------------------------------------------------------------------------");
+    printf("\n");
+  */
     return 0;
+
 
 
 }

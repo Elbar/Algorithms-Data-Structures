@@ -6,7 +6,7 @@ int const n = 10;
 using namespace std;
 queue<int> myQueue;
 
- int main() {
+int main() {
     int a[n], b[n], max = b[0], min = b[0], k;
 
 

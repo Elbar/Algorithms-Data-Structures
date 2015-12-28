@@ -153,23 +153,22 @@ void select_sort(univer univer1[], int size) {
 }
 
 /*
-void merge_sort(univer univer1[], int l = 0, int m, int r)
+void merge_sort(univer univer1[], int l, int m, int r)
 {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 =  r - m;
 
-    create temp arrays
+     create temp arrays
     univer left[n1], right[n2];
 
-    Copy data to temp arrays L[] and R[]
+     Copy data to temp arrays L[] and R[]
     for(i = 0; i < n1; i++)
         left[i] = univer1[l + i];
     for(j = 0; j < n2; j++)
         right[j] = univer1[m + 1+ j];
 
      Merge the temp arrays back into arr[l..r]
-
     i = 0;
     j = 0;
     k = l;
@@ -205,7 +204,8 @@ void merge_sort(univer univer1[], int l = 0, int m, int r)
     }
 }
 
-l is for left index and r is right index of the sub-array
+
+/* l is for left index and r is right index of the sub-array
   of arr to be sorted
 void mergeSort(univer univer1[],  int l, int r)
 {
@@ -213,17 +213,17 @@ void mergeSort(univer univer1[],  int l, int r)
     if (l < r)
     {
         int m = l+(r-l)/2; //Same as (l+r)/2, but avoids overflow for large l and h
-        mergeSort(univer1, l, m);
-        mergeSort(univer1,  m+1, r);
-        merge_sort(univer1, l, m, r);
+        mergeSort(, l, m);
+        mergeSort(arr, m+1, r);
+        merge_sort(univer univer1[], l, m, r);
 
         printf("mergesort() ends \n");
 
     }
 }
+
+
 */
-
-
 
 int main() {
     univer university[128];
@@ -252,8 +252,9 @@ int main() {
     double time_taken1 = ((double) time1) / CLOCKS_PER_SEC;
 
     printf("selectsort() took %f seconds to execute \n", time_taken1);
+    /*
 
-   /* clock_t time2;
+    clock_t time2;
     time2 = clock();
     merge_sort(university, tmp);
     time2 = clock() - time2;
@@ -262,9 +263,10 @@ int main() {
     printf("mergesort() took %f seconds to execute \n", time_taken2);
     printf("------------------------------------------------------------------------");
     printf("\n");
-  */
-    return 0;
+     */
 
+
+    return 0;
 
 
 }

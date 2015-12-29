@@ -1,19 +1,13 @@
-//
-// Created by root on 12/23/15.
-//
-
-
 #include <iostream>
 using namespace std;
 int a[100];
-void quickSort(int l, int r)
+void quickSort( int l, int r)
 {
-    int x = a[l + (r - l) / 2];
-    //запись эквивалентна (l+r)/2,
-    //но не вызввает переполнения на больших данных
+    int x = a[(l + r) / 2];
+
     int i = l;
     int j = r;
-    //код в while обычно выносят в процедуру particle
+
     while(i <= j)
     {
         while(a[i] < x) i++;

@@ -2,7 +2,6 @@
 #include <iostream>
 
 int const n = 10;
-
 using namespace std;
 queue<int> myQueue;
 
@@ -33,7 +32,8 @@ int main() {
             min = b[i];
         }
     }
-    cout << "\nmin = " << min << endl;
+
+    cout << "\nmin = " << min;
 
     for (int i = 0; i < n; i++) {
         if (max == b[i]) {

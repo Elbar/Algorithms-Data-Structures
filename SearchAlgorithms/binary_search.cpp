@@ -40,7 +40,7 @@ int main()
       cin>>userValue;
 
       int result = binarySearch(a,8,userValue);
-      if(result >= 0)
+          if(result >= 0)
       {
           cout<<"The number "<< a[result]<<" was found at the element with index "<<result<<endl;
 

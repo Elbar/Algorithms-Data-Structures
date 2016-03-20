@@ -3,5 +3,5 @@ project(labs)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES fourth-lab/knight_tour.cpp)
+set(SOURCE_FILES sixth-lab/bank.cpp)
 add_executable(labs ${SOURCE_FILES})

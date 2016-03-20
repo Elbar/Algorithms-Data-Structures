@@ -118,8 +118,6 @@ void bubble_sort(univer univer1[], int size) {
 
 void select_sort(univer univer1[], int size) {
     int i, j, k;
-
-
     printf("selectsort starts \n");
 
     for (i = 0; i < size; i++) {

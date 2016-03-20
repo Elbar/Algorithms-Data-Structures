@@ -19,7 +19,7 @@ bool palindrom( char * str) {
 
 int main() {
 
-    cout<<palindrom("asa"); // return 1
+    cout<<palindrom("aziza"); // return 1
 
 
 }
